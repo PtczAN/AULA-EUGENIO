@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soma JS</title>
+</head>
+<body>
+    <script>
+        function calcularSoma(){
+            x = parseInt(document.getElementById("numero1").value);
+            y = parseInt(document.getElementById("numero2").value);
+            soma = x + y;
+            document.getElementById("resultado").value = soma;
+        } 
+        </script>
+    <form action = "calcularSoma()">
+    numero 1: <input type="text" name="numero1" id="numero1"/><br/>
+    numero 2: <input type="text" name="numero2" id="numero2"/><br/>
+    resultado: <input type="text" name="resultado" id="resultado"/><br/>
+    <button type="button" onclick="calcularSoma()">calcular</button> 
+    </form>
+</body>
+</html>
