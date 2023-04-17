@@ -29,11 +29,28 @@ class funcionarioDao{
     function alterar ($funcionarios){
         
     }
-    function lista (){
-        
+    function lista(){
+        global $conn;
+        $sql = "SELECT re,nome,dataNascimento,salario FROM funcionarios";
+        $result = mysqli_query($conn,$sql);
+        $lista = array();
+        while ($row = $result -> fetch_assoc())
+        array_push($lista, new funcionarios($row["re"], $row["nome"], $row ["dataNascimento"], $row["salario"]));
+        return $lista;
     }
     function buscarpeloRe ($re){
-        
+        global $conn;
+        $nome="";
+        $dataNascimento="";
+        $salario=0.0;
+        $sql = "SELECT * FROM funcionarios where re = ?";
+        $query = $conn->prepare($sql);
+        $result=$query->bind_param("i",$re);
+        $query->execute();
+        $query->bind_reasult($re,$nome,$dataNascimento,$salario);
+        if($query->fetch()){
+            return new funcionarios($re, $nome, $dataNascimento, $salario);
+        }
     }
 }
 ?>
