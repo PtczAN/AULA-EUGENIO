@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IMC</title>
+</head>
+<body>
+    <script>
+        function calcularIMC(){
+            x = parseFloat(document.getElementById("peso").value);
+            y = parseFloat(document.getElementById("altura").value);
+            div = x/(y*y);
+            document.getElementById("IMC").value = div;
+            if(div < 18.5){
+                avaliacao = "magro";
+            } else if (div < 25){
+                avalicao = "normal";
+            }else if (div < 30){
+                avalicao = "sobrepeso";
+            } else {
+                avalicao = "obeso";
+            }
+            document.getElementById("avaliacao").innerHTML=avaliacao;
+        } 
+        </script>
+    <form >
+    Peso: <input type="text" name="peso" id="peso"/><br/>
+    Altura: <input type="text" name="altura" id="altura"/><br/>
+    IMC: <input type="text " name="IMC" id="IMC"/><br/>
+    <button type="button" onclick="calcularIMC()">calcular</button> 
+    <p id = "avaliacao"></p>
+</form>
+    
+</body>
+</html>
